@@ -6,7 +6,7 @@ The repo is modified based on Graph2Graph (https://github.com/wengong-jin/iclr19
 
 ## Model Overview
 
-![framework](.\framework.png)
+![framework](framework.png)
 
 ## Requirements
 
