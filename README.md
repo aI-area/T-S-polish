@@ -68,7 +68,7 @@ bash train.sh
 
 Other tasks can run in a similar way (just change the parameter `TASK_TAG` in the script). 
 
-Feel free to tune the hyper parameters to try to get better result.  In our default setting, `--hidden_size 300` sets the hidden state dimension to be 300, `--rand_size 8` sets the latent code dimension to be 8. `--epoch 30 --anneal_rate 0.95` means the model will be trained for 30 epochs, with learning rate annealing by 0.95. 
+Feel free to tune the hyper parameters to try to get better result.  In our default setting, `--hidden_size 300` sets the hidden state dimension to be 300, `--epoch 30 --anneal_rate 0.9` means the model will be trained for 30 epochs, with learning rate annealing by 0.9. 
 
 After each epoch, the model will be saved (default in the path `saved/model` from the project root).
 
