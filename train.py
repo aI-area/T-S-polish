@@ -37,7 +37,7 @@ def program_config():
 
     # network structure
     parser.add_argument('--hidden_size', type=int, default=300)
-    parser.add_argument('--rand_size', type=int, default=16)
+    parser.add_argument('--rand_size', type=int, default=8)
     parser.add_argument('--share_embedding', action='store_true')
     parser.add_argument('--use_molatt', action='store_true')
     parser.add_argument('--depthT', type=int, default=6)
