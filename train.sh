@@ -8,7 +8,7 @@ python train.py \
 --train_file "data/${TASK_TAG}/train_processed" \
 --vocab "data/${TASK_TAG}/vocab.txt" \
 --model_save_dir "saved/model" \
---hidden_size 300 --rand_size 8 \
+--hidden_size 300 \
 --epoch 30 --lr 0.0001 \
 --anneal_rate 0.95 --anneal_interval 1 \
 --batch_size 32 \
