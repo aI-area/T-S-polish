@@ -29,17 +29,17 @@ All the scripts for processing data, training and evaluation are placed under th
 
 ## Preprocessing
 
-For fast training, we need to first preprocess the training data. The preprocessing first calculate the center score and mark the reserved/removed/added branches, and then construct the junction tree structure. For instance, you can preprocess the training set of logp06 task using: 
+For training, we need to first apply Teacher component, which first calculate the center score and mark the reserved/removed/added branches, and then construct the junction tree structure. For instance, you can execture this operation on the training set of logp06 task using: 
 
 ```bash
 # Generate score data for training set (mark the optimization center, preserved/removed/added branches)
 python scripts/count_center_score.py --smiles_pair_file data/logp06/train_pairs.txt --result_file data/logp06/train_score_data.txt --ncpu 8
 
-# Preprocess training file (for faster traning)
+# Preprocess training file
 python scripts/preprocess.py --data_file data/logp06/train_score_data.txt --save_file data/logp06/train_trees.pkl --ncpu 8
 ```
 
-To preprocess all the datasets, just run
+For all the datasets, just run
 
 ```bash
 bash preprocess.sh
@@ -54,7 +54,7 @@ If you want to use your own dataset, you need extract a vocab file by the follow
 python scripts/gen_vocab.py --mol_file data/your_dataset/mols.txt --save_vocab_file data/your_dataset/vocab.txt --ncpu 32
 ```
 
-## Training
+## Training (Student component)
 
  You can train our model on the qed task by
 
@@ -64,7 +64,7 @@ bash train.sh
 
 Other tasks can run in a similar way (just change the parameter `TASK_TAG` in the script). 
 
-Feel free to tune the hyper parameters to try to get better result.  In our default setting, `--hidden_size 300` sets the hidden state dimension to be 300, `--rand_size 8` sets the latent code dimension to be 8. `--epoch 30 --anneal_rate 0.95` means the model will be trained for 30 epochs, with learning rate annealing by 0.95. 
+Feel free to tune the hyper parameters to try to get better result. In our default setting, `--hidden_size 300` sets the hidden state dimension to be 300, `--epoch 30 --anneal_rate 0.9` means the model will be trained for 30 epochs, with learning rate annealing by 0.9. 
 
 After each epoch, the model will be saved (default in the path `saved/model` from the project root).
 
@@ -79,11 +79,3 @@ bash valid.sh
 Other tasks can run in a similar way (just change the parameter in the script). 
 
 After validation and choose the best model, you can use  `evaluation.py`  to test the performance of the best model. 
-
-Here we provide an example script for running the evaluation process with all our best models for M1 task:
-
-```bash
-bash test.sh
-```
-
-You can run with all the best models for other tasks by changing the model path. 
