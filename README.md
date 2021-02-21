@@ -27,7 +27,7 @@ A quick summary of different folders:
 
 All the scripts for processing data, training and evaluation are placed under the root directory of this repo. 
 
-## Preprocessing
+## Teacher Component
 
 For training, we need to first apply Teacher component, which first calculate the center score and mark the reserved/removed/added branches, and then construct the junction tree structure. For instance, you can execture this operation on the training set of logp06 task using: 
 
@@ -54,7 +54,7 @@ If you want to use your own dataset, you need extract a vocab file by the follow
 python scripts/gen_vocab.py --mol_file data/your_dataset/mols.txt --save_vocab_file data/your_dataset/vocab.txt --ncpu 32
 ```
 
-## Training (Student component)
+## Student component
 
  You can train our model on the qed task by
 
