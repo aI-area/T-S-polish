@@ -5,6 +5,7 @@ export PYTHONPATH=$(pwd)
 #######################################
 ### SETTING YOUR OWN PARAMETER HEAR ###
 TASK_TAG=qed # qed, drd2, logp04, logp06, GuacaMol_qed, Moses_qed, GuacaMol_multi_prop, reverse_logp04
+METRIC_TYPE=M1 # M1, M2, M3, M4, M5, M6
 MODEL_DIR=saved/model/${TASK_TAG}
 BEGIN_NUM=1
 END_NUM=30
@@ -22,6 +23,7 @@ for ((i=${BEGIN_NUM}; i<=${END_NUM}; i++)); do
         --load_model_dir "${f}" \
         --load_model_config_dir "${MODEL_DIR}/model_config.json" \
         --task_tag "${TASK_TAG}" \
+        --metric_type "${METRIC_TYPE}" \
         --device "${DEVICE}"
         echo "============================================================"
     fi

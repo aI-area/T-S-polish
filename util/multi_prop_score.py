@@ -2,14 +2,18 @@ from props import *
 import logging
 
 
-def evaluation_multi_prop(data, decode_num=1):
+def evaluation_multi_prop(data, metric_type, decode_num=1):
     result = count_multi_prop_score(data)
-    # M6
-    count_multi_prop_success_rate(result,
-                                  decode_num=1,
-                                  sim_delta=0.2,
-                                  qed_prop_delta=0.4,
-                                  drd2_prop_delta=0.4)
+
+    if metric_type == 'M6':
+        # M6
+        count_multi_prop_success_rate(result,
+                                      decode_num=1,
+                                      sim_delta=0.2,
+                                      qed_prop_delta=0.4,
+                                      drd2_prop_delta=0.4)
+    else:
+        raise Exception('metric_type must be chosen from M6! ')
 
 
 def count_multi_prop_score(data):

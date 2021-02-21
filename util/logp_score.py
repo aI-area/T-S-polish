@@ -9,77 +9,100 @@ from util.success_rate import count_success_rate
 from util.prop_improvement import count_prop_improvement
 
 
-def evaluation_logp04(data, decode_num=1):
+def evaluation_logp04(data, metric_type, decode_num=1):
     result = count_logp_score(data)
-    # M1
-    count_success_rate(result, decode_num=decode_num,
-                       sim_delta=0.4, prop_delta=0.8, prop_name='logp04',
-                       using_reverse=False, using_prop_improve=True)
-    # M2
-    count_success_rate(result, decode_num=decode_num,
-                       sim_delta=0.4, prop_delta=1.2, prop_name='logp04',
-                       using_reverse=False, using_prop_improve=True)
-    # M3
-    count_success_rate(result, decode_num=decode_num,
-                       sim_delta=0.4, prop_delta=0.6, prop_name='logp04',
-                       using_reverse=False, using_prop_improve=True)
-    # M4
-    count_prop_improvement(result, decode_num=decode_num,
-                           sim_delta=0.3, prop_name='logp04',
-                           using_reverse=False)
-    # M5
-    count_prop_improvement(result, decode_num=decode_num,
-                           sim_delta=0.4, prop_name='logp04',
-                           using_reverse=False)
+
+    if metric_type == 'M1':
+        # M1
+        count_success_rate(result, decode_num=decode_num,
+                           sim_delta=0.4, prop_delta=0.8, prop_name='logp04',
+                           using_reverse=False, using_prop_improve=True)
+    elif metric_type == 'M2':
+        # M2
+        count_success_rate(result, decode_num=decode_num,
+                           sim_delta=0.4, prop_delta=1.2, prop_name='logp04',
+                           using_reverse=False, using_prop_improve=True)
+    elif metric_type == 'M3':
+        # M3
+        count_success_rate(result, decode_num=decode_num,
+                           sim_delta=0.4, prop_delta=0.6, prop_name='logp04',
+                           using_reverse=False, using_prop_improve=True)
+    elif metric_type == 'M4':
+        # M4
+        count_prop_improvement(result, decode_num=decode_num,
+                               sim_delta=0.3, prop_name='logp04',
+                               using_reverse=False)
+    elif metric_type == 'M5':
+        # M5
+        count_prop_improvement(result, decode_num=decode_num,
+                               sim_delta=0.4, prop_name='logp04',
+                               using_reverse=False)
+    else:
+        raise Exception('metric_type must be chosen from M1 to M5! ')
 
 
-def evaluation_logp06(data, decode_num=1):
+def evaluation_logp06(data, metric_type, decode_num=1):
     result = count_logp_score(data)
-    # M1
-    count_success_rate(result, decode_num=decode_num,
-                       sim_delta=0.4, prop_delta=0.8, prop_name='logp06',
-                       using_reverse=False, using_prop_improve=True)
-    # M2
-    count_success_rate(result, decode_num=decode_num,
-                       sim_delta=0.4, prop_delta=1.2, prop_name='logp06',
-                       using_reverse=False, using_prop_improve=True)
-    # M3
-    count_success_rate(result, decode_num=decode_num,
-                       sim_delta=0.4, prop_delta=0.6, prop_name='logp06',
-                       using_reverse=False, using_prop_improve=True)
-    # M4
-    count_prop_improvement(result, decode_num=decode_num,
-                           sim_delta=0.3, prop_name='logp06',
-                           using_reverse=False)
-    # M5
-    count_prop_improvement(result, decode_num=decode_num,
-                           sim_delta=0.4, prop_name='logp06',
-                           using_reverse=False)
+    if metric_type == 'M1':
+        # M1
+        count_success_rate(result, decode_num=decode_num,
+                           sim_delta=0.4, prop_delta=0.8, prop_name='logp06',
+                           using_reverse=False, using_prop_improve=True)
+    elif metric_type == 'M2':
+        # M2
+        count_success_rate(result, decode_num=decode_num,
+                           sim_delta=0.4, prop_delta=1.2, prop_name='logp06',
+                           using_reverse=False, using_prop_improve=True)
+    elif metric_type == 'M3':
+        # M3
+        count_success_rate(result, decode_num=decode_num,
+                           sim_delta=0.4, prop_delta=0.6, prop_name='logp06',
+                           using_reverse=False, using_prop_improve=True)
+    elif metric_type == 'M4':
+        # M4
+        count_prop_improvement(result, decode_num=decode_num,
+                               sim_delta=0.3, prop_name='logp06',
+                               using_reverse=False)
+    elif metric_type == 'M5':
+        # M5
+        count_prop_improvement(result, decode_num=decode_num,
+                               sim_delta=0.4, prop_name='logp06',
+                               using_reverse=False)
+    else:
+        raise Exception('metric_type must be chosen from M1 to M5! ')
 
 
-def evaluation_reverse_logp04(data, decode_num=1):
+def evaluation_reverse_logp04(data, metric_type, decode_num=1):
     result = count_logp_score(data)
-    # M1
-    count_success_rate(result, decode_num=decode_num,
-                       sim_delta=0.4, prop_delta=-0.8, prop_name='reverse_logp04',
-                       using_reverse=True, using_prop_improve=True)
-    # M2
-    count_success_rate(result, decode_num=decode_num,
-                       sim_delta=0.4, prop_delta=-1.2, prop_name='reverse_logp04',
-                       using_reverse=True, using_prop_improve=True)
-    # M3
-    count_success_rate(result, decode_num=decode_num,
-                       sim_delta=0.4, prop_delta=-0.6, prop_name='reverse_logp04',
-                       using_reverse=True, using_prop_improve=True)
-    # M4
-    count_prop_improvement(result, decode_num=decode_num,
-                           sim_delta=0.3, prop_name='reverse_logp04',
-                           using_reverse=True)
-    # M5
-    count_prop_improvement(result, decode_num=decode_num,
-                           sim_delta=0.4, prop_name='reverse_logp04',
-                           using_reverse=True)
 
+    if metric_type == 'M1':
+        # M1
+        count_success_rate(result, decode_num=decode_num,
+                           sim_delta=0.4, prop_delta=-0.8, prop_name='reverse_logp04',
+                           using_reverse=True, using_prop_improve=True)
+    elif metric_type == 'M2':
+        # M2
+        count_success_rate(result, decode_num=decode_num,
+                           sim_delta=0.4, prop_delta=-1.2, prop_name='reverse_logp04',
+                           using_reverse=True, using_prop_improve=True)
+    elif metric_type == 'M3':
+        # M3
+        count_success_rate(result, decode_num=decode_num,
+                           sim_delta=0.4, prop_delta=-0.6, prop_name='reverse_logp04',
+                           using_reverse=True, using_prop_improve=True)
+    elif metric_type == 'M4':
+        # M4
+        count_prop_improvement(result, decode_num=decode_num,
+                               sim_delta=0.3, prop_name='reverse_logp04',
+                               using_reverse=True)
+    elif metric_type == 'M5':
+        # M5
+        count_prop_improvement(result, decode_num=decode_num,
+                               sim_delta=0.4, prop_name='reverse_logp04',
+                               using_reverse=True)
+    else:
+        raise Exception('metric_type must be chosen from M1 to M5! ')
+    
 
 def count_logp_score(data):
     result = []

@@ -33,6 +33,7 @@ def program_config():
     parser.add_argument('--task_tag', required=True, choices=['drd2', 'qed', 'logp04', 'logp06',
                                                               'GuacaMol_qed', 'Moses_qed',
                                                               'GuacaMol_multi_prop', 'reverse_logp04'])
+    parser.add_argument('--metric_type', required=True, choices=['M1', 'M2', 'M3', 'M4', 'M5', 'M6'])
     parser.add_argument('--decode_num', type=int, default=1)
 
     parser.add_argument('--seed', type=int, default=4)
@@ -63,8 +64,9 @@ def initialize(args):
     lg = rdkit.RDLogger.logger()
     lg.setLevel(rdkit.RDLogger.CRITICAL)
 
-    arg_info = '%s_HS_%d_RS_%d' % (
+    arg_info = '%s_%s_HS_%d_RS_%d' % (
         args.task_tag,
+        args.metric_type,
         args.hidden_size,
         args.rand_size
     )
@@ -107,17 +109,17 @@ def evaluation(args, logger):
                 continue
 
     if args.task_tag == 'drd2':
-        evaluation_drd2(result, decode_num=args.decode_num)
+        evaluation_drd2(result, args.metric_type, decode_num=args.decode_num)
     elif args.task_tag == 'qed' or args.task_tag == 'GuacaMol_qed' or args.task_tag == 'Moses_qed':
-        evaluation_qed(result, decode_num=args.decode_num)
+        evaluation_qed(result, args.metric_type, decode_num=args.decode_num)
     elif args.task_tag == 'logp04':
-        evaluation_logp04(result, decode_num=args.decode_num)
+        evaluation_logp04(result, args.metric_type, decode_num=args.decode_num)
     elif args.task_tag == 'logp06':
-        evaluation_logp06(result, decode_num=args.decode_num)
+        evaluation_logp06(result, args.metric_type, decode_num=args.decode_num)
     elif args.task_tag == 'reverse_logp04':
-        evaluation_reverse_logp04(result, decode_num=args.decode_num)
+        evaluation_reverse_logp04(result, args.metric_type, decode_num=args.decode_num)
     elif args.task_tag == 'GuacaMol_multi_prop':
-        evaluation_multi_prop(result, decode_num=args.decode_num)
+        evaluation_multi_prop(result, args.metric_type, decode_num=args.decode_num)
 
 
 if __name__ == '__main__':
