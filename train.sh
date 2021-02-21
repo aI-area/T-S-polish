@@ -10,7 +10,7 @@ python train.py \
 --model_save_dir "saved/model" \
 --hidden_size 300 \
 --epoch 30 --lr 0.0001 \
---anneal_rate 0.95 --anneal_interval 1 \
+--anneal_rate 0.9 --anneal_interval 1 \
 --batch_size 32 \
 --task_tag "${TASK_TAG}" \
 --share_embedding \
