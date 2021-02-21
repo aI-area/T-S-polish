@@ -1,12 +1,10 @@
 # T-S Polish
 
-Here we provide the implementation of the T-S Polish Model along with some execution examples. 
-
-The repo is modified based on Graph2Graph (https://github.com/wengong-jin/iclr19-graph2graph).
+Here we provide the implementation of the T-S Polish Model along with some execution examples. The code for predicting added branches is based on Graph2Graph (https://github.com/wengong-jin/iclr19-graph2graph). 
 
 ## Model Overview
 
-![framework](framework.png)
+![image](https://github.com/aI-area/T-S-polish/blob/master/workflow.png)
 
 ## Requirements
 
@@ -28,8 +26,6 @@ A quick summary of different folders:
 * `util/` contains some useful common tools including logging tools, chemical process tools and so on. 
 
 All the scripts for processing data, training and evaluation are placed under the root directory of this repo. 
-
-All the best model in our experiment can be found in `saved/best_model`. 
 
 ## Preprocessing
 
@@ -68,7 +64,7 @@ bash train.sh
 
 Other tasks can run in a similar way (just change the parameter `TASK_TAG` in the script). 
 
-Feel free to tune the hyper parameters to try to get better result.  In our default setting, `--hidden_size 300` sets the hidden state dimension to be 300, `--epoch 30 --anneal_rate 0.9` means the model will be trained for 30 epochs, with learning rate annealing by 0.9. 
+Feel free to tune the hyper parameters to try to get better result.  In our default setting, `--hidden_size 300` sets the hidden state dimension to be 300, `--rand_size 8` sets the latent code dimension to be 8. `--epoch 30 --anneal_rate 0.95` means the model will be trained for 30 epochs, with learning rate annealing by 0.95. 
 
 After each epoch, the model will be saved (default in the path `saved/model` from the project root).
 
